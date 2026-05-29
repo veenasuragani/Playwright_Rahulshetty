@@ -1,0 +1,24 @@
+{
+  "name": "playwrightautomation_rahul",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test tests/webapiPart1.spec.js --project=chromium --headed",
+    "webtest": "npx playwright test --grep @web",
+    "apitest": "npx playwright test --grep @api",
+    "chrometest": "npx playwright test --project=chromium",
+    "firefoxtest": "npx playwright test --project=firefox"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
+    "allure-playwright": "^3.9.0"
+  },
+  "dependencies": {
+    "exceljs": "^3.10.0"
+  }
+}
