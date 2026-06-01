@@ -19,7 +19,7 @@ test('SecurityTest', async ({ page }) => {
 
 });
 
-test.only('networkAbort&RequestAndResponseData', async ({ browser }) => {
+test('networkAbort&RequestAndResponseData', async ({ browser }) => {
     
     const context = await browser.newContext();
     const page = await context.newPage();

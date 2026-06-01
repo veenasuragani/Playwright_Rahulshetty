@@ -52,7 +52,7 @@ test('API Intercepting with Six Events', async ({ page }) => {
 });
 
 
-test.only('API Intercepting with Four Events', async ({ page }) => {
+test('API Intercepting with Four Events', async ({ page }) => {
 
   await page.route('**/api/events**',
     async (route) => {

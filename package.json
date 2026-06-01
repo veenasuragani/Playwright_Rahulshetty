@@ -8,17 +8,21 @@
     "webtest": "npx playwright test --grep @web",
     "apitest": "npx playwright test --grep @api",
     "chrometest": "npx playwright test --project=chromium",
-    "firefoxtest": "npx playwright test --project=firefox"
+    "firefoxtest": "npx playwright test --project=firefox",
+    "cucumberregression": "npx cucumber-js --tags '@regression' --retry 1 --exit --format html:reports/cucumber-report.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@azure/identity": "^4.13.1",
+    "@azure/playwright": "^1.1.5",
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.1",
     "allure-playwright": "^3.9.0"
   },
   "dependencies": {
+    "@cucumber/cucumber": "^12.9.0",
     "exceljs": "^3.10.0"
   }
 }
