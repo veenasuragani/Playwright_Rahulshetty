@@ -49,33 +49,34 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'],
-        screenshot: 'only-on-failure',
-        video: 'retain-on-failure',
-        trace: 'retain-on-failure',
+      use: {
+        ...devices['Desktop Chrome'],
+        screenshot: 'on',
+        video: 'on',
+        trace: 'on',
       },
     },
 
     {
       name: 'firefox',
-      use: { 
+      use: {
         browserName: 'firefox',
         headless: false,
-        screenshot: 'only-on-failure',
-        video: 'retain-on-failure',
-        trace: 'retain-on-failure',
+        screenshot: 'on',
+        video: 'on',
+        trace: 'on',
         viewport: { width: 1280, height: 720 },
       },
     },
 
     {
       name: 'webkit',
-      use: { 
+      use: {
         browserName: 'webkit',
         headless: false,
-        screenshot: 'only-on-failure',
-        video: 'retain-on-failure',
-        trace: 'retain-on-failure',
+        screenshot: 'on',
+        video: 'on',
+        trace: 'on',
         ...devices['iPhone 12 Pro'],
       },
     },
