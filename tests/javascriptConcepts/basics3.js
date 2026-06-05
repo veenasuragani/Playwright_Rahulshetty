@@ -54,17 +54,18 @@ let sumValue=scores1.filter(score=>score%2==0).map(score=>score*3).reduce((sum,v
 console.log(sumValue)
 let fruits =["banana","mango","pomegrante","apple"]
 
-console.log(fruits.sort())
+console.log(fruits.sort()) //sort method is used only for string values
 console.log(fruits.reverse())
 
 
 var scores1 = [12,0o3,19,16,14] //9
-// console.log(scores1.sort())
+console.log(scores1.sort()) //output: [ 12, 14, 16, 19, 3 ], sorting failed for numbers.
 // scores1.sort(function(a,b){
 //     return a-b
 // })
 
-console.log(scores1.sort((a,b)=> b-a))
+console.log(scores1.sort((a,b)=> a-b)) //output: [ 3, 12, 14, 16, 19 ], sorting is successful for numbers.
+console.log(scores1.sort((a,b)=> b-a)) //output: [ 19, 16, 14, 12, 3 ], sorting is successful for numbers in descending order.
 
 
 
