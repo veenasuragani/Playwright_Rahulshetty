@@ -18,7 +18,8 @@ diff.toString()
 
 let newQuote =day+ "is Funday day"
 console.log(newQuote)
-let val =newQuote.indexOf("day",5)
+// let val1 =newQuote.indexOf("day") //here search starts from 0 index
+let val =newQuote.indexOf("day",5) //here search starts from 5 index
 console.log(val)
 //tuesday is Funday  
 let count = 0
