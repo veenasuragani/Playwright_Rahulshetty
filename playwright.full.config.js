@@ -31,6 +31,7 @@ export default defineConfig({
     ['list'],
     // ✅ ADDED: dot reporter for compact CI output (conditional)
     ...(process.env.CI ? [['dot']] : []),
+    ['allure-playwright', { outputFolder: 'allure-results', detail: true }]
   ],
 
   // ─── Global Setup / Teardown ───────────────────────────────────────────────
