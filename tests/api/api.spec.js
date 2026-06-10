@@ -67,8 +67,7 @@ test('create via API then verify in UI', async ({ page, request }) => {
   await page.goto('/admin/users'); 
 await expect(page.locator(`tr:has-text("${user.email}")`)).toBeVisible(); 
 // Delete via UI 
-await page.locator('tr').filter({ hasText: user.email }) 
-.getByRole('button', { name: 'Delete' }).click(); 
+await page.locator('tr').filter({ hasText: user.email }).getByRole('button', { name: 'Delete' }).click(); 
 // Verify deletion via API 
 const checkRes = await request.get(`/api/users/${user.id}`); 
 expect(checkRes.status()).toBe(404); 
