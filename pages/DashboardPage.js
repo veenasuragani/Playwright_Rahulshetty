@@ -2,8 +2,8 @@ const {expect} = require('@playwright/test');
 
 class DashboardPage{
     constructor(page){
-        this.page=page;
-        this.products=page.locator('.card-body');
+        this.page=this.page;
+        this.products=this.page.locator('.card-body');
     }
     
     async searchAndAddToCart(productName){

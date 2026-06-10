@@ -1,9 +1,9 @@
 class LoginPage{
     constructor(page){
         this.page=page;
-        this.username=page.getByPlaceholder('email@example.com');
-        this.password=page.getByPlaceholder('enter your passsword');
-        this.loginButton=page.getByRole('button', {name: 'login'});
+        this.username=this.page.getByPlaceholder('email@example.com');
+        this.password=this.page.getByPlaceholder('enter your passsword');
+        this.loginButton=this.page.getByRole('button', {name: 'login'});
     }
 
     async goTo(){
