@@ -1,4 +1,6 @@
-const test = base.extend({ 
+const { test, expect } = require('@playwright/test');
+
+const requiredtest = test.extend({ 
   
   // Fixture: page with user already logged in 
   loggedInPage: async ({ page }, use) => { 
@@ -13,7 +15,7 @@ const test = base.extend({
      
     // TEARDOWN (runs after test finishes) 
     await page.goto('/logout'); 
-  }, 
+  },
   
   // Fixture: API request context with auth header 
   authedRequest: async ({ playwright }, use) => { 
@@ -43,4 +45,5 @@ const test = base.extend({
 
 });
 
-module.exports = {test, expect};
+module.exports = { requiredtest, expect };
+
