@@ -45,5 +45,5 @@ const requiredtest = test.extend({
 
 });
 
-module.exports = { requiredtest, expect };
+module.exports = { test: requiredtest, expect };
 
