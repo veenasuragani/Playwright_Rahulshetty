@@ -16,4 +16,6 @@ const totalScore = passedStudents.reduce((acc, student)=>{
     return acc;
 }, 0)
 
+//const totalScore = passedStudents.reduce((acc, student) => acc + student.score, 0)
+
 console.log(totalScore); //output: 182

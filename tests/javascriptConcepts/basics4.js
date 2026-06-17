@@ -1,7 +1,7 @@
 //block of code 
 //var - global level/functional
 //let global level/block level {}
-//const -
+//const - global level/block level but value cannot be changed
 const greet = "Evening"
 //greet = "night"
 
