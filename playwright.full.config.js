@@ -1,6 +1,43 @@
 import { defineConfig, devices } from '@playwright/test';
 import path from 'path';
 
+// ✅ ADDED: Environment-specific base URLs
+const environments = {
+  dev: 'http://localhost:3000',
+  qa: 'https://qa.myapp.com',
+  staging: 'https://staging.myapp.com',
+  production: 'https://myapp.com',
+};
+
+// ✅ ADDED: Environment-specific credentials
+const credentials = {
+  dev: {
+    username: 'dev_user',
+    password: 'dev_password',
+  },
+  qa: {
+    username: process.env.QA_USERNAME || 'qa_user',
+    password: process.env.QA_PASSWORD || 'qa_password',
+  },
+  staging: {
+    username: process.env.STAGING_USERNAME || 'staging_user',
+    password: process.env.STAGING_PASSWORD || 'staging_password',
+  },
+  production: {
+    username: process.env.PROD_USERNAME || '',
+    password: process.env.PROD_PASSWORD || '',
+  },
+};
+
+// ✅ ADDED: Select environment from ENV variable (default: dev)
+const env = (process.env.ENV || 'dev').toLowerCase();
+const baseURL = environments[env] || environments['dev'];
+const envCredentials = credentials[env] || credentials['dev'];
+
+console.log(`🌍 Running tests against: ${env.toUpperCase()} (${baseURL})`);
+console.log(`👤 Using credentials for: ${env.toUpperCase()}`);
+
+
 export default defineConfig({
   // ─── Test Discovery ────────────────────────────────────────────────────────
   testDir: './tests',
@@ -40,7 +77,7 @@ export default defineConfig({
 
   // ─── Shared Browser Options ────────────────────────────────────────────────
   use: {
-    baseURL: process.env.BASE_URL || 'https://myapp.com', // ✅ IMPROVED: env-var override
+    baseURL: baseURL,              // ✅ IMPROVED: dynamically select based on ENV variable
     headless: true,
     viewport: { width: 1280, height: 720 },
     screenshot: 'only-on-failure',
