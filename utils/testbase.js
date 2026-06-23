@@ -1,6 +1,6 @@
-const base=require('@playwright/test');
+const { test, expect } = require('@playwright/test');
 
-exports.customtest=base.test.extend({
+const customtest=test.extend({
     testDataForOrder:
     {
     username: "suragani.veena@gmail.com",
@@ -14,3 +14,4 @@ exports.customtest=base.test.extend({
 
 
 })
+module.exports={customtest};
