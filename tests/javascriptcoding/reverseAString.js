@@ -7,6 +7,9 @@ function reverseString(str){
 }
 
 const rev=str => [...str].reduceRight((acc, c) => acc+c, '');
+
+const revString = str => str.split('').reverse().join('');
 console.log(reverseString('Hello World'));
 console.log(rev('Hello World'));
 console.log(rev('veenasri'));
+console.log(revString('Hello World'));
