@@ -10,4 +10,4 @@ function secondHighest(arr){
 console.log(secondHighest([1,2,3,4,5])); //4
 console.log(secondHighest([5,5,5,5])); //undefined
 console.log(secondHighest([1,2,3,4,5,5])); //4  
-console.log(secondHighest([1,2])); //1
+console.log(secondHighest([1,9,7,3,8])); //8
