@@ -17,11 +17,9 @@ console.log(mostFrequentChar("hello world")) // ['l', 3]
 
 /*
 charFrequency returns as below
-[
-  ['a', 3],
-  ['b', 1],
-  ['c', 5]
-]
+[ a: 3, 
+ b: 1, 
+ c: 5 ]
 
 converts that into array with object entries  and sorts that 
 [

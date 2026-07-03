@@ -12,7 +12,7 @@ const revString = str => str.split('').reverse().join('');
 console.log(reverseString('Hello World'));
 console.log(rev('Hello World'));
 console.log(rev('veenasri'));
-console.log(revString('Hello World'));
+console.log(revString('Hello World')); // "dlroW olleH"
 
 /*
 [...str]  
