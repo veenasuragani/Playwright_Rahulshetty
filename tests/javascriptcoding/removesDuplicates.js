@@ -4,6 +4,15 @@ function removeDuplicates(Arr){
     return [...new Set(Arr)]
 }
 
+function removeDuplicatesWithoutset(arr){
+    return arr.reduce((unique, item) =>{
+        if(!unique.includes(item)){
+            unique.push(item);
+        }
+        return unique;
+    }, [])
+}
+
 function removeDuplicateObjects(Arr, key){
     return [...new Map(Arr.map(item => [item[key], item])).values()]
 }
