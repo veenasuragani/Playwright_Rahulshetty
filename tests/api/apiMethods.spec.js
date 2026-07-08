@@ -1,4 +1,8 @@
 const { test, expect } = require('@playwright/test');
+import Ajv from "ajv";
+
+
+
 
 const loginPayload = { email: "suragani.veena@gmail.com", password: "S.veena@1217" };
 const eventpayload = {
@@ -14,6 +18,7 @@ const eventpayload = {
 }
 let token;
 let eventId;
+let responseBody;
 
 // ── GET ─────────────────────────────────────────────────────────── 
 test.beforeAll('POST /api/auth/login returns token', async ({ request }) => {
@@ -22,7 +27,7 @@ test.beforeAll('POST /api/auth/login returns token', async ({ request }) => {
   expect(response.status()).toBe(200);
   expect(response).toBeOK();
 
-  const responseBody = await response.json();
+  responseBody = await response.json();
   token = responseBody.token;
   console.log(token);
 });
@@ -75,3 +80,21 @@ test('put /api/events/:id updates event', async ({ request }) => {
     expect(response.status()).toBe(200);
     expect(response).toBeOK();
   });
+
+  const ajv = new Ajv();
+
+const schema = {
+  type: "object",
+  required: ["id", "name", "status"],
+  properties: {
+    id: { type: "number" },
+    name: { type: "string" },
+    status: { type: "string" }
+  }
+};
+
+const validate = ajv.compile(schema);
+const isValid = validate(responseBody);
+
+if (!isValid) {
+  console.log(validate.errors);}
