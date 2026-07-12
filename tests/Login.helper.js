@@ -9,7 +9,7 @@ async function Login(page, baseURL, email, password) {
     await expect(page.getByRole('link', { name: 'EventHub' })).toBeVisible();   
 
 }
-
+//spaces removed in main
 
 
 module.exports = {Login};
