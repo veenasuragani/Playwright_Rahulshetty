@@ -18,15 +18,28 @@ const requiredtest = test.extend({
   },
   
   // Fixture: API request context with auth header 
-  authedRequest: async ({ playwright }, use) => { 
-    const context = await playwright.request.newContext({ 
-      baseURL: 'https://api.example.com', 
-      extraHTTPHeaders: { 
-        Authorization: 'Bearer hardcoded-token' 
-      } 
-    }); 
-    await use(context); 
-    await context.dispose();  // teardown: close context 
+  authedRequest: async ({ playwright, request }, use) => { 
+    const loginResponse = await request.post('/login', {
+      data: {
+        email: 'admin@test.com',
+        password: 'Admin@123'
+      }
+    });
+    const loginBody = await loginResponse.json();
+    const token = loginBody.token || loginBody.accessToken;
+
+    if (!token) {
+      throw new Error(`Login failed. Response: ${await loginResponse.text()}`);
+    }
+
+    const context = await playwright.request.newContext({
+      baseURL: 'https://api.example.com',
+      extraHTTPHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    await use(context);
+    await context.dispose(); // teardown: close context
   },
 
   // Fixture: created user (for tests that need a user) 
